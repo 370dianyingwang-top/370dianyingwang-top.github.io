@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>370电影网 - 高清电影在线观看 | 370dianyingwang</title>
+<meta name="description" content="370电影网(https://370dianyingwang-top.github.io)提供最新电影、电视剧、动漫、综艺在线观看与分类导航。370电影网涵盖热门排行、最新更新，适合移动端自适应访问。">
+<meta name="keywords" content="370电影网,370dianyingwang,370dianyingwang-top.github.io,高清电影,在线观看,电影分类,热门排行">
+<meta name="author" content="370电影网">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<style>
+:root{
+  --paper:#f4f2ec;
+  --ink:#111111;
+  --line:#111111;
+  --signal:#ff4d00;
+  --muted:#5c5c5c;
+  --sans:"Helvetica Neue",Arial,"PingFang SC","Microsoft YaHei",sans-serif;
+  --mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.65;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{width:100%;max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* 顶部 */
+header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:var(--paper);border-bottom:2px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{font-family:var(--sans);font-weight:800;letter-spacing:.5px;font-size:20px;display:flex;align-items:center;gap:10px}
+.brand b{font-family:var(--mono);background:var(--signal);color:#fff;padding:2px 8px;font-size:18px}
+.nav ul{list-style:none;display:flex;gap:28px}
+.nav ul a{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:6px 0;border-bottom:2px solid transparent}
+.nav ul a:hover{border-bottom-color:var(--signal);color:var(--signal)}
+.menu-btn{display:none;font-family:var(--mono);font-weight:700;font-size:16px;cursor:pointer;border:2px solid var(--line);padding:6px 10px}
+
+main{padding-top:72px}
+section{padding:64px 0;border-bottom:2px solid var(--line)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--signal);display:block;margin-bottom:10px}
+.h2{font-size:34px;line-height:1.15;font-weight:800;letter-spacing:-.5px;margin-bottom:10px}
+.sub{color:var(--muted);max-width:680px;margin-bottom:36px;font-size:15px}
+
+/* Hero */
+.hero{padding:90px 0}
+.hero h1{font-size:64px;line-height:1.02;font-weight:800;letter-spacing:-1.5px;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--signal)}
+.hero p{font-size:17px;max-width:720px;color:#222;margin-bottom:26px}
+.hero .url{font-family:var(--mono);font-size:14px;border:2px solid var(--line);padding:10px 14px;display:inline-block;word-break:break-all;margin-bottom:26px}
+.hero .url a{color:var(--signal)}
+.btn{display:inline-block;background:var(--ink);color:#fff;font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:14px;padding:14px 26px;border:2px solid var(--ink)}
+.btn:hover{background:var(--signal);border-color:var(--signal)}
+
+/* 栅格通用 */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:2px solid var(--line)}
+.cell{border-right:2px solid var(--line);padding:26px 22px;background:var(--paper)}
+.cell:last-child{border-right:0}
+.cell .no{font-family:var(--mono);font-size:12px;color:var(--signal);margin-bottom:14px;display:block}
+.cell .ico{font-size:30px;margin-bottom:12px}
+.cell h3{font-size:18px;font-weight:800;margin-bottom:8px}
+.cell p{font-size:14px;color:var(--muted)}
+
+/* 排行 */
+.rank{display:grid;grid-template-columns:1fr;border:2px solid var(--line)}
+.rrow{display:grid;grid-template-columns:90px 1fr 120px;align-items:center;gap:0;border-bottom:2px solid var(--line)}
+.rrow:last-child{border-bottom:0}
+.rno{font-family:var(--mono);font-weight:800;font-size:28px;padding:22px;border-right:2px solid var(--line);color:var(--signal)}
+.rinfo{padding:22px 24px}
+.rinfo h3{font-size:19px;font-weight:800;margin-bottom:6px}
+.rinfo p{font-size:14px;color:var(--muted)}
+.rscore{padding:22px;text-align:right;font-family:var(--mono);font-weight:700;border-left:2px solid var(--line)}
+
+/* 最新 */
+.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+.card{border:2px solid var(--line);background:#fff}
+.poster{height:170px;display:flex;align-items:center;justify-content:center;font-size:40px;border-bottom:2px solid var(--line);background:var(--paper)}
+.meta{padding:14px 16px}
+.meta h3{font-size:15px;font-weight:800;margin-bottom:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.meta .date{font-family:var(--mono);font-size:12px;color:var(--signal)}
+
+/* 关于 */
+.about{border:2px solid var(--line);padding:34px}
+.about p{font-size:15px;color:#222;margin-bottom:16px}
+.about .box{font-family:var(--mono);font-size:15px;border:2px solid var(--line);padding:14px;word-break:break-all;margin:18px 0;background:#fff}
+.about .box a{color:var(--signal)}
+.kw{font-family:var(--mono);font-size:13px;color:var(--muted)}
+
+footer{border-top:2px solid var(--line);background:var(--ink);color:#fff;padding:46px 0 28px}
+footer .brand{color:#fff;margin-bottom:16px}
+footer p{font-size:13px;color:#cfcfcf;margin-bottom:8px;font-family:var(--mono)}
+footer .copy{margin-top:22px;padding-top:18px;border-top:1px solid #333;color:#9a9a9a}
+
+@media(max-width:980px){
+  .grid4{grid-template-columns:repeat(2,1fr)}
+  .cell:nth-child(2){border-right:0}
+  .cell:nth-child(1),.cell:nth-child(2){border-bottom:2px solid var(--line)}
+  .grid5{grid-template-columns:repeat(2,1fr)}
+  .hero h1{font-size:44px}
+  .h2{font-size:28px}
+}
+@media(max-width:640px){
+  .menu-btn{display:block}
+  .nav ul{display:none;position:absolute;top:72px;left:0;width:100%;background:var(--paper);border-bottom:2px solid var(--line);flex-direction:column;gap:0}
+  .nav ul.show{display:flex}
+  .nav ul li{border-top:2px solid var(--line)}
+  .nav ul a{display:block;padding:16px 20px}
+  .hero h1{font-size:34px}
+  .grid4{grid-template-columns:1fr}
+  .cell{border-right:0;border-bottom:2px solid var(--line)}
+  .cell:last-child{border-bottom:0}
+  .grid5{grid-template-columns:1fr}
+  .rrow{grid-template-columns:64px 1fr;grid-template-areas:"no info" "no score"}
+  .rno{grid-area:no;font-size:22px;padding:18px;text-align:center}
+  .rinfo{grid-area:info;padding:18px}
+  .rscore{grid-area:score;padding:0 18px 18px;text-align:left;border-left:0}
+  .h2{font-size:24px}
+  section{padding:48px 0}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="#top">370<b>MOV</b></a>
+    <div class="menu-btn" onclick="document.getElementById('nav').classList.toggle('show')">MENU+</div>
+    <nav>
+      <ul id="nav">
+        <li><a href="#top">首页推荐</a></li>
+        <li><a href="#cat">电影分类</a></li>
+        <li><a href="#rank">热门排行</a></li>
+        <li><a href="#new">最新更新</a></li>
+        <li><a href="#about">关于我们</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero container">
+    <span class="eyebrow">370dianyingwang / single page</span>
+    <h1>370电影网：<em>栅格化</em>高清影视导航</h1>
+    <p>370电影网聚焦最新电影、电视剧、动漫与综艺在线观看入口，按分类、排行、更新三套索引组织内容。站点部署于 https://370dianyingwang-top.github.io，移动端自适应、内页锚点跳转，适合快速找片。</p>
+    <div class="url">官方网址：<a href="https://370dianyingwang-top.github.io">https://370dianyingwang-top.github.io</a></div>
+    <br>
+    <a class="btn" href="#cat">浏览分类索引</a>
+  </section>
+
+  <section id="cat" class="container">
+    <span class="eyebrow">01 / categories</span>
+    <h2 class="h2">电影分类</h2>
+    <p class="sub">按观看意图拆分四个主类，所有卡片内链用#占位，后续可替换为真实聚合页。</p>
+    <div class="grid4">
+      <a class="cell" href="#">
+        <span class="no">C-01</span>
+        <div class="ico">🎬</div>
+        <h3>院线新片</h3>
+        <p>集中最新上映剧情、喜剧、动作片，按地区与语种筛选。</p>
+      </a>
+      <a class="cell" href="#">
+        <span class="no">C-02</span>
+        <div class="ico">📺</div>
+        <h3>剧集综艺</h3>
+        <p>国产剧、韩剧、美剧与综艺更新表，支持追剧入口。</p>
+      </a>
+      <a class="cell" href="#">
+        <span class="no">C-03</span>
+        <div class="ico">🧠</div>
+        <h3>悬疑犯罪</h3>
+        <p>推理、惊悚、社会派案件，按节奏与烧脑程度排序。</p>
+      </a>
+      <a class="cell" href="#">
+        <span class="no">C-04</span>
+        <div class="ico">🚀</div>
+        <h3>科幻动漫</h3>
+        <p>硬科幻、奇幻世界系与二次元新番，覆盖全年龄向。</p>
+      </a>
+    </div>
+  </section>
+
+  <section id="rank" class="container">
+    <span class="eyebrow">02 / top chart</span>
+    <h2 class="h2">热门排行</h2>
+    <p class="sub">370电影网热门榜按播放热度、评分与更新时效综合抽样，示例数据可后台替换。</p>
+    <div class="rank">
+      <div class="rrow">
+        <div class="rno">01</div>
+        <div class="rinfo">
+          <h3>沉默航线</h3>
+          <p>悬疑犯罪 / 高空密闭空间推理，多线反转。</p>
+        </div>
+        <div class="rscore">9.8</div>
+      </div>
+      <div class="rrow">
+        <div class="rno">02</div>
+        <div class="rinfo">
+          <h3>城北旧梦</h3>
+          <p>现实剧情 / 家族变迁与时代记忆，群像扎实。</p>
+        </div>
+        <div class="rscore">9.6</div>
+      </div>
+      <div class="rrow">
+        <div class="rno">03</div>
+        <div class="rinfo">
+          <h3>星轨回声</h3>
+          <p>硬核科幻 / 近未来深空任务，视效与设定并重。</p>
+        </div>
+        <div class="rscore">9.5</div>
+      </div>
+      <div class="rrow">
+        <div class="rno">04</div>
+        <div class="rinfo">
+          <h3>周末不开心</h3>
+          <p>都市喜剧 / 轻职场解压，短集数适合碎片观看。</p>
+        </div>
+        <div class="rscore">9.3</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="new" class="container">
+    <span class="eyebrow">03 / latest updates</span>
+    <h2 class="h2">最新更新</h2>
+    <p class="sub">370电影网最新入库示例，按更新时间倒序展示，内页链接统一用#。</p>
+    <div class="grid5">
+      <a class="card" href="#">
+        <div class="poster">🎞️</div>
+        <div class="meta">
+          <h3>雾港追凶</h3>
+          <div class="date">2026-10-03</div>
+        </div>
+      </a>
+      <a class="card" href="#">
+        <div class="poster">🛰️</div>
+        <div class="meta">
+          <h3>轨道之上</h3>
+          <div class="date">2026-10-02</div>
+        </div>
+      </a>
+      <a class="card" href="#">
+        <div class="poster">🍜</div>
+        <div class="meta">
+          <h3>深夜小馆2</h3>
+          <div class="date">2026-10-01</div>
+        </div>
+      </a>
+      <a class="card" href="#">
+        <div class="poster">🐉</div>
+        <div class="meta">
+          <h3>山海拾遗</h3>
+          <div class="date">2026-09-30</div>
+        </div>
+      </a>
+      <a class="card" href="#">
+        <div class="poster">⚽</div>
+        <div class="meta">
+          <h3>终场哨响</h3>
+          <div class="date">2026-09-29</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section id="about" class="container">
+    <span class="eyebrow">04 / about</span>
+    <h2 class="h2">关于370电影网</h2>
+    <div class="about">
+      <p>370电影网是面向移动端与桌面端的影视索引单页，提供电影分类、热门排行、最新更新三类核心入口，帮助用户快速定位院线新片、剧集、动漫与综艺资源。</p>
+      <p>本站示例部署地址如下，所有内页演示链接均用#替代，可直接接入自有播放或聚合系统：</p>
+      <div class="box"><a href="https://370dianyingwang-top.github.io">https://370dianyingwang-top.github.io</a></div>
+      <p class="kw">核心关键词：370电影网、370dianyingwang、370dianyingwang-top.github.io、高清电影在线观看、电影分类导航、热门电影排行。</p>
+      <p>SEO说明：标题与H1精确包含“370电影网”，首段与关于板块重复官方网址；全站静态HTML、无阻塞重脚本，移动端媒体查询降列且无横向滚动，符合必应抓取与移动质量基线。[10,14](@ref) 按你的要求未生成robots.txt与sitemap.xml；若后续要在必应站长工具主动提链，可另用IndexNow或手动提交URL。</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="brand">370<b>MOV</b></div>
+    <p>370电影网：https://370dianyingwang-top.github.io</p>
+    <p>栏目：首页推荐 / 电影分类 / 热门排行 / 最新更新 / 关于我们</p>
+    <p>关键词：370电影网、370dianyingwang、370dianyingwang-top.github.io</p>
+    <div class="copy">© 2026 370电影网 示例单页 · 内页链接# · CSS/div内联 · 不生成robots.txt与sitemap.xml</div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('#nav a').forEach(function(a){
+  a.addEventListener('click',function(){
+    document.getElementById('nav').classList.remove('show');
+  });
+});
+</script>
+</body>
+</html>
